@@ -97,7 +97,7 @@ def exchange_command(message):
 @bot.message_handler(commands=['total'])
 def exchange_command(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
-    mypath = '\\\\192.168.105.137\\Obmen\\Web\\telegram\\total.txt'
+    mypath = config.PATH + 'total.txt'
 
     if os.path.exists(mypath):
         # try:
@@ -150,9 +150,9 @@ def repeat_all_messages(message):
 
     keyboard = telebot.types.InlineKeyboardMarkup()
     if period:
-        mypath = '\\\\192.168.105.137\\Obmen\\Web\\telegram\\' + message.text[0:3] + '.txt'
+        mypath = config.PATH + message.text[0:3] + '.txt'
     else:
-        mypath = '\\\\192.168.105.137\\Obmen\\Web\\telegram\\previous\\' + message.text[0:3] + '.txt'
+        mypath = config.PATH +  'previous\\' + message.text[0:3] + '.txt'
 
     if message.text.title() == 'Имбирева':
         bot.send_message(message.chat.id, u'\U0001F9E1')
